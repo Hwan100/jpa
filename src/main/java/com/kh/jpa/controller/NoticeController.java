@@ -27,6 +27,12 @@ public class NoticeController {
         return ResponseEntity.ok(noticeService.findNotice(noticeNo));
     }
 
+    //공지수정
+    @PutMapping("/{noticeNo}")
+    public ResponseEntity<NoticeDto.Response> updateNotice(@PathVariable Long noticeNo, @RequestBody NoticeDto.Update updateDto) {
+        return ResponseEntity.ok(noticeService.updateNotice(updateDto, noticeNo));
+    }
+
     //공지삭제
     @DeleteMapping("/{noticeNo}")
     public ResponseEntity<Void> deleteNotice(@PathVariable Long noticeNo) {

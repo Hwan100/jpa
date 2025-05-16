@@ -39,6 +39,19 @@ public class NoticeServiceImpl implements NoticeService {
     }
 
     @Override
+    public NoticeDto.Response updateNotice(NoticeDto.Update updateDto, Long noticeNo) {
+        Notice notice = noticeRepository.findOne(noticeNo)
+                .orElseThrow(()->new IllegalArgumentException("존재하지 않는 게시글입니다."));
+
+        notice.updateNoticeInfo(
+                updateDto.getNotice_title(),
+                updateDto.getNotice_content()
+        );
+
+        return NoticeDto.Response.toDto(notice);
+    }
+
+    @Override
     public void deleteNotice(Long noticeNo) {
         Notice notice = noticeRepository.findOne(noticeNo)
                 .orElseThrow(()->new IllegalArgumentException("존재하지 않는 게시글입니다."));

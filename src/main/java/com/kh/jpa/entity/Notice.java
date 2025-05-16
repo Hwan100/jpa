@@ -29,6 +29,11 @@ public class Notice {
     @Column(name = "create_date")
     private LocalDateTime createDate;
 
+    public void updateNoticeInfo(String noticeTitle, String noticeContent) {
+        this.noticeTitle = noticeTitle;
+        this.noticeContent = noticeContent;
+    }
+
     @PrePersist
     public void prePersist() {
         this.createDate = LocalDateTime.now();
