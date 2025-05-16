@@ -2,10 +2,7 @@ package com.kh.jpa.dto;
 
 import com.kh.jpa.entity.Member;
 import com.kh.jpa.enums.CommonEnums;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -42,6 +39,7 @@ public class MemberDto {
     @Setter
     @AllArgsConstructor
     @NoArgsConstructor
+    @Builder
     public static class Response{
         private String user_id;
         private String user_name;
@@ -56,8 +54,8 @@ public class MemberDto {
 
         public static Response toDto(Member member) {
             return Response.builder()
-                    .userId(member.getUserId())
-                    .userName(member.getUserName())
+                    .user_id(member.getUserId())
+                    .user_name(member.getUserName())
                     .email(member.getEmail())
                     .gender(member.getGender())
                     .phone(member.getPhone())
