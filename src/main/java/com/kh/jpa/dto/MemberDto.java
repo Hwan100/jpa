@@ -68,4 +68,19 @@ public class MemberDto {
 
         }
     }
+
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class Update{
+
+        private String user_name;
+        private String email;
+        private Member.Gender gender;
+        private String phone;
+        private String address;
+        private Integer age;
+
+    }
 }

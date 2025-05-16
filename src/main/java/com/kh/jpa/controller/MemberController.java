@@ -25,4 +25,17 @@ public class MemberController {
     public ResponseEntity<MemberDto.Response> getMember(@PathVariable String userId) {
         return ResponseEntity.ok(memberService.findMember(userId));
     }
+
+    //회원수정
+    @PutMapping("/{userId}")
+    public ResponseEntity<MemberDto.Response> updateMember(@PathVariable String userId, @RequestBody MemberDto.Update updateDto) {
+        return ResponseEntity.ok(memberService.updateMember(userId, updateDto));
+    }
+
+    //회원삭제
+    @DeleteMapping("/{userId}")
+    public ResponseEntity<Void> deleteMember(@PathVariable String userId) {
+        memberService.deleteMember(userId);
+        return ResponseEntity.ok().build();
+    }
 }

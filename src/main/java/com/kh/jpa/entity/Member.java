@@ -1,5 +1,6 @@
 package com.kh.jpa.entity;
 
+import com.kh.jpa.dto.MemberDto;
 import com.kh.jpa.enums.CommonEnums;
 import jakarta.persistence.*;
 import lombok.*;
@@ -56,6 +57,15 @@ public class Member {
 
     public enum Gender {
         M, F
+    }
+
+    public void updateMemberInfo(String userName,String email, Gender gender, String phone, String address, Integer age) {
+        this.userName = userName;
+        this.email = email;
+        this.gender = gender;
+        this.phone = phone;
+        this.address = address;
+        this.age = age;
     }
 
     //엔티티가 영속성 컨텍스트에 저장되기 전(em.persist())에 실행되는 메서드

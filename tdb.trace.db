@@ -1,0 +1,6 @@
+2025-05-16 19:16:04.420537+09:00 jdbc[34]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM NOTICE NOTICE_WRITER [*]MEMBER"; SQL statement:
+SELECT * FROM NOTICE NOTICE_WRITER MEMBER [42000-232]
+2025-05-16 19:16:09.156458+09:00 jdbc[34]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM NOTICE NOTICE_WRITER [*]MEMBER MEMBER"; SQL statement:
+SELECT * FROM NOTICE NOTICE_WRITER MEMBER MEMBER [42000-232]
