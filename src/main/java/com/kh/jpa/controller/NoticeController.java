@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/notice")
 @RequiredArgsConstructor
@@ -40,4 +42,9 @@ public class NoticeController {
         return ResponseEntity.ok().build();
     }
 
+    //타이틀 키워드로 공지조회
+    @GetMapping("/search/keyword")
+    public ResponseEntity<List<NoticeDto.Response>> searchNoticeByKeyword(@RequestParam String keyword) {
+        return ResponseEntity.ok(noticeService.searchNoticeByKeyword(keyword));
+    }
 }

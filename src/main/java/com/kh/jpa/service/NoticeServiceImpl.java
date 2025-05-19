@@ -7,8 +7,12 @@ import com.kh.jpa.entity.Notice;
 import com.kh.jpa.repository.MemberRepository;
 import com.kh.jpa.repository.NoticeRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -57,6 +61,14 @@ public class NoticeServiceImpl implements NoticeService {
                 .orElseThrow(()->new IllegalArgumentException("존재하지 않는 게시글입니다."));
 
         noticeRepository.delete(notice);
+    }
+
+    @Override
+    public List<NoticeDto.Response> searchNoticeByKeyword(String keyword) {
+        return noticeRepository.searchNoticeByKeyword(keyword).stream()
+                .map(NoticeDto.Response::toDto)
+                .collect(Collectors.toList());
+
     }
 
 }
