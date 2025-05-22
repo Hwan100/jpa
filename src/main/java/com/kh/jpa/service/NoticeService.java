@@ -10,4 +10,5 @@ public interface NoticeService {
     NoticeDto.Response updateNotice(NoticeDto.Update updateDto, Long noticeNo);
     void deleteNotice(Long noticeNo);
     List<NoticeDto.Response> searchNoticeByKeyword(String keyword);
+    List<NoticeDto.Response> findNoticeAll();
 }

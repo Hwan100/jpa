@@ -11,4 +11,5 @@ public interface NoticeRepository{
     Optional<Notice> findOne(Long noticeNo);
     void delete(Notice notice);
     List<Notice> searchNoticeByKeyword(String keyword);
+    List<Notice> findNoticeAll();
 }

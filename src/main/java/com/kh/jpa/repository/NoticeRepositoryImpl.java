@@ -37,4 +37,10 @@ public class NoticeRepositoryImpl implements NoticeRepository {
                 .setParameter("title", "%" + keyword + "%")
                 .getResultList();
     }
+
+    @Override
+    public List<Notice> findNoticeAll() {
+        String query = "select n from Notice n";
+        return em.createQuery(query, Notice.class).getResultList();
+    }
 }

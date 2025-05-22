@@ -23,7 +23,13 @@ public class NoticeController {
         return ResponseEntity.ok(noticeId);
     }
 
-    //공지조회
+    //공지전체조회
+    @GetMapping
+    public ResponseEntity<List<NoticeDto.Response>> getNotices() {
+        return ResponseEntity.ok(noticeService.findNoticeAll());
+    }
+
+    //특정공지조회
     @GetMapping("/{noticeNo}")
     public ResponseEntity<NoticeDto.Response> getNotice(@PathVariable Long noticeNo) {
         return ResponseEntity.ok(noticeService.findNotice(noticeNo));

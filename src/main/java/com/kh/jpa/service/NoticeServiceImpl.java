@@ -71,4 +71,10 @@ public class NoticeServiceImpl implements NoticeService {
 
     }
 
+    @Override
+    public List<NoticeDto.Response> findNoticeAll() {
+        return noticeRepository.findNoticeAll().stream()
+                .map(NoticeDto.Response::toDto).toList();
+    }
+
 }
