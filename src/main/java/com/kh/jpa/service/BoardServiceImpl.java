@@ -7,6 +7,7 @@ import com.kh.jpa.entity.Member;
 import com.kh.jpa.entity.Tag;
 import com.kh.jpa.enums.CommonEnums;
 import com.kh.jpa.repository.BoardRepository;
+import com.kh.jpa.repository.BoardRepositoryV2;
 import com.kh.jpa.repository.MemberRepository;
 import com.kh.jpa.repository.TagRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -25,7 +26,7 @@ import java.util.UUID;
 @Transactional
 public class BoardServiceImpl implements BoardService {
 
-    private final BoardRepository boardRepository;
+    private final BoardRepositoryV2 boardRepository;
     private final MemberRepository memberRepository;
     private final String UPLOAD_PATH = "C:\\dev_tool\\";
     private final TagRepository tagRepository;
@@ -96,7 +97,7 @@ public class BoardServiceImpl implements BoardService {
             }
         }
 
-        return boardRepository.save(board);
+        return boardRepository.save(board).getBoardNo();
     }
 
     @Override
